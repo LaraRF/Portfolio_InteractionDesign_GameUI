@@ -7,14 +7,16 @@
 
 #include "raylib.h"
 #include "globalstates.h"
+#include <iostream>
+#include "languagesettings.h"
 
 class optionen {
 public:
     int cursor = 0;
 
-    void update(globalstates &globalstates);
+    void update(globalstates &globalstates, languagestates &languagestates);
 
-    void draw();
+    void draw(languagestates &languagestates);
 
     Rectangle hitbox_flagDE = {100, 350, 150, 90};
     Rectangle hitbox_flagDE_marked = {90, 340, 170, 110};
@@ -29,6 +31,7 @@ public:
     Texture2D flagDE = LoadTexture("assets/graphics/flag_DE_5.png");
     Texture2D flagENG = LoadTexture("assets/graphics/flag_ENG_2.png");
     Texture2D closeButton = LoadTexture("assets/graphics/button_close.png");
+
 };
 
 

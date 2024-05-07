@@ -9,7 +9,9 @@
 enum globalstates{
     menu,
     hauptoptionen,
-    gameplayscreen
+    gameplayscreen,
+    pausieren,
+    journal
 };
 
 

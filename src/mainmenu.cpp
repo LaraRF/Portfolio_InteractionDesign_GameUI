@@ -4,7 +4,7 @@
 
 #include "mainmenu.h"
 
-void mainmenu::update(globalstates &globalstates) {
+void mainmenu::update(globalstates &globalstates, languagestates &languagestates) {
     if(IsKeyPressed(KEY_RIGHT)){
         if(cursor == 2){
             cursor = 2; //makes it, so you can't go "more to the right" than last box
@@ -35,7 +35,7 @@ void mainmenu::update(globalstates &globalstates) {
     }
 }
 
-void mainmenu::draw() {
+void mainmenu::draw(languagestates &languagestates) {
     DrawTexture(title, 10, 50, WHITE);
 
 

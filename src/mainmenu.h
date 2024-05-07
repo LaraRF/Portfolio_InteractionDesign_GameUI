@@ -7,14 +7,15 @@
 
 #include "raylib.h"
 #include "globalstates.h"
+#include "languagesettings.h"
 
 class mainmenu {
 public:
     int cursor = 0;
 
-    void update(globalstates &globalstates);
+    void update(globalstates &globalstates, languagestates &languagestates);
 
-    void draw();
+    void draw(languagestates &languagestates);
 
     Texture2D title = LoadTexture("assets/graphics/title_3.png");
 

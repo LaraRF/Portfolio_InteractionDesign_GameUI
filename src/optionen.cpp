@@ -3,8 +3,11 @@
 //
 
 #include "optionen.h"
+#include "globalstates.h"
+#include "raylib.h"
+#include "languagesettings.h"
 
-void optionen::update(globalstates &globalstates) {
+void optionen::update(globalstates &globalstates, languagestates &languagestates) {
     if(IsKeyPressed(KEY_RIGHT)){
         if(cursor == 2){
             cursor = 2; //ends with last box, does not come back on the other side of the screen
@@ -24,10 +27,10 @@ void optionen::update(globalstates &globalstates) {
     if(IsKeyPressed(KEY_ENTER)) {
         switch(cursor){
             case 0:
-                //to do: set language to german
+                languagestates = german;
                 break;
             case 1:
-                //to do: set language to english
+                languagestates = english;
                 break;
             case 2:
                 globalstates = menu;
@@ -35,7 +38,7 @@ void optionen::update(globalstates &globalstates) {
     }
 }
 
-void optionen::draw() {
+void optionen::draw(languagestates &languagestates) {
 
     switch(cursor){ //shows which box is selected by giving it a white outline
         case 0:
@@ -59,4 +62,17 @@ void optionen::draw() {
     DrawTexture(flagENG, 425,365,WHITE);
     DrawTexture(closeButton, 745,360,WHITE);
 
+    switch(languagestates){
+        case german:
+            DrawText("Einstellungen", 320, 30, 50, WHITE);
+            break;
+        case english:
+            DrawText("Settings", 320, 30, 50, WHITE);
+            break;
+        default:
+            break;
+    }
+
 }
+
+

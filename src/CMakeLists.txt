@@ -15,7 +15,13 @@ add_executable(${PROJECT_NAME} main.cpp
         optionen.cpp
         optionen.h
         gameplay.cpp
-        gameplay.h)
+        gameplay.h
+        pausescreen.cpp
+        pausescreen.h
+        languagesettings.h
+        journal.cpp
+        journal.h
+)
 
 # Add config.h.in file
 configure_file(config.h.in config.h)

@@ -6,8 +6,10 @@
 #include "config.h"
 #include "mainmenu.h"
 #include "globalstates.h"
+#include "languagesettings.h"
 #include "optionen.h"
 #include "gameplay.h"
+#include "pausescreen.h"
 
 int main() {
     // Raylib initialization
@@ -26,11 +28,15 @@ int main() {
     float renderScale{}; //those two are relevant to drawing and code-cleanliness
     Rectangle renderRec{};
 
+    languagestates language =german;
+
     globalstates state = menu;
 
     mainmenu mainmenu;
     optionen optionen;
     gameplay gameplay;
+    pausescreen pausescreen;
+
 
     //SetWindowSize(GetMonitorWidth(GetCurrentMonitor()), GetMonitorHeight(GetCurrentMonitor()));
     //ToggleFullscreen();
@@ -50,13 +56,16 @@ int main() {
 
         switch (state) {
             case menu:
-                mainmenu.update(state);
+                mainmenu.update(state, language);
                 break;
             case hauptoptionen:
-                optionen.update(state);
+                optionen.update(state, language);
                 break;
             case gameplayscreen:
-                gameplay.update(state);
+                gameplay.update(state, language);
+                break;
+            case pausieren:
+                pausescreen.update(state, language);
                 break;
             default:
                 break;
@@ -70,14 +79,16 @@ int main() {
             ClearBackground(BLACK);
             switch (state) {
                 case menu:
-                    mainmenu.draw();
+                    mainmenu.draw(language);
                     break;
                 case hauptoptionen:
-                    optionen.draw();
+                    optionen.draw(language);
                     break;
                 case gameplayscreen:
-                    gameplay.draw();
+                    gameplay.draw(language);
                     break;
+                case pausieren:
+                    pausescreen.draw(language);
                 default:
                     break;
             }
