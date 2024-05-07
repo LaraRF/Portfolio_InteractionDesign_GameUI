@@ -17,15 +17,18 @@ public:
 
     void draw(languagestates &languagestates);
 
-    Rectangle hitbox_close = {700, 350, 150, 90};
-    Rectangle hitbox_close_marked = {690, 340, 170, 110};
+    Rectangle hitbox_close = {800, 440, 120, 80};
+    Rectangle hitbox_close_marked = {790, 430, 140, 100};
     Texture2D closeButton = LoadTexture("assets/graphics/button_close.png");
 
-    Rectangle journalpage1 = {100, 350, 150, 90};
-    Rectangle journalpage1_marked = {90, 340, 170, 110};
+    Rectangle journalpage1 = {45, 70, 320, 350};
+    Rectangle journalpage1_marked = {35, 60, 340, 370};
 
-    Rectangle journalpage2 = {400, 350, 150, 90};
-    Rectangle journalpage2_marked = {390, 340, 170, 110};
+    Rectangle journalpage2 = {570, 70, 320, 350};
+    Rectangle journalpage2_marked = {560, 60, 340, 370};
+
+    Texture2D journalbackground = LoadTexture("assets/graphics/journal_background.png");
+
 };
 
 

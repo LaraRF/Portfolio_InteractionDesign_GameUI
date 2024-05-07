@@ -40,6 +40,8 @@ void journal::update(globalstates &globalstates, languagestates &languagestates)
 
 void journal::draw(languagestates &languagestates) {
 
+    DrawTexture(journalbackground, 5,5,WHITE);
+
     switch(cursor){ //shows which box is selected by giving it a white outline
         case 0:
             DrawRectangleRec(journalpage1_marked, WHITE);
@@ -54,23 +56,30 @@ void journal::draw(languagestates &languagestates) {
             break;
     }
 
+
     DrawRectangleRec(journalpage1, GRAY);
     DrawRectangleRec(journalpage2, GRAY);
     DrawRectangleRec(hitbox_close, GRAY);
 
-    //DrawTexture(journalpagemap, 125,365,WHITE);
-    //DrawTexture(journalpageitems, 425,365,WHITE);
-    DrawTexture(closeButton, 745,360,WHITE);
+    DrawTexture(closeButton, 825,450,WHITE);
 
-    /*switch(languagestates){
+
+    switch(languagestates) {
         case german:
-            DrawText("Einstellungen", 320, 30, 50, WHITE);
+            DrawText("Journal Inhalt TBD", 50, 15, 30, BLACK);
+            DrawText("Journal Inhalt TBD", 575, 15, 30, BLACK);
+            DrawText("Hier wird es mal ein Journal\nmit verschiedenen\nSeiten geben.", 60, 200, 20, BLACK);
+            DrawText("Aktuell passiert\nauf diesen beiden\nSeiten noch nichts.", 610, 200, 20, BLACK);
+
+
             break;
         case english:
-            DrawText("Settings", 320, 30, 50, WHITE);
+            DrawText("Journal content TBD", 45, 15, 30, BLACK);
+            DrawText("Journal content TBD", 570, 15, 30, BLACK);
+            DrawText("Eventually here\nwill be a journal\nwith different pages.", 60, 200, 20, BLACK);
+            DrawText("At this time\nnothing happens on\nthese two pages.", 610, 200, 20, BLACK);
             break;
         default:
             break;
-    }*/
-
+    }
 }
