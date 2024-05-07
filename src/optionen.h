@@ -26,8 +26,9 @@ public:
     Rectangle hitbox_close_marked = {690, 340, 170, 110};
 
 
-    Texture2D flagDE = LoadTexture("assets/graphics/flag_DE.png");
-    Texture2D flagENG = LoadTexture("assets/graphics/flag_ENG.png");
+    Texture2D flagDE = LoadTexture("assets/graphics/flag_DE_5.png");
+    Texture2D flagENG = LoadTexture("assets/graphics/flag_ENG_2.png");
+    Texture2D closeButton = LoadTexture("assets/graphics/button_close.png");
 };
 
 

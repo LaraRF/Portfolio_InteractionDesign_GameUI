@@ -55,6 +55,8 @@ void optionen::draw() {
     DrawRectangleRec(hitbox_flagENG, GRAY);
     DrawRectangleRec(hitbox_close, GRAY);
 
-    DrawTexture(flagDE, 150,350,WHITE);
-    DrawTexture(flagENG, 450,350,WHITE);
+    DrawTexture(flagDE, 125,365,WHITE);
+    DrawTexture(flagENG, 425,365,WHITE);
+    DrawTexture(closeButton, 745,360,WHITE);
+
 }
