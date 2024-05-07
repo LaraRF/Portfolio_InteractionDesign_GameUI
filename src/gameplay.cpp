@@ -11,6 +11,9 @@ void gameplay::update(globalstates &globalstates, languagestates &languagestates
     if(IsKeyPressed(KEY_P)){
         globalstates =pausieren;
     }
+    if(IsKeyPressed(KEY_J)){
+        globalstates =hauptjournal;
+    }
 }
 
 void gameplay::draw(languagestates &languagestates) {

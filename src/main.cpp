@@ -10,6 +10,7 @@
 #include "optionen.h"
 #include "gameplay.h"
 #include "pausescreen.h"
+#include "journal.h"
 
 int main() {
     // Raylib initialization
@@ -36,6 +37,7 @@ int main() {
     optionen optionen;
     gameplay gameplay;
     pausescreen pausescreen;
+    journal journal;
 
 
     //SetWindowSize(GetMonitorWidth(GetCurrentMonitor()), GetMonitorHeight(GetCurrentMonitor()));
@@ -67,6 +69,8 @@ int main() {
             case pausieren:
                 pausescreen.update(state, language);
                 break;
+            case hauptjournal:
+                journal.update(state, language);
             default:
                 break;
         }
@@ -89,6 +93,8 @@ int main() {
                     break;
                 case pausieren:
                     pausescreen.draw(language);
+                case hauptjournal:
+                    journal.draw(language);
                 default:
                     break;
             }
