@@ -9,15 +9,16 @@
 #include "globalstates.h"
 #include <iostream>
 #include "languagesettings.h"
-#include <vector>
+#include "soundsettings.h"
+#include "controlsettings.h"
 
 class optionen {
 public:
     int cursor;
 
-    void update(globalstates &globalstates, languagestates &languagestates);
+    void update(globalstates &globalstates, languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes);
 
-    void draw(languagestates &languagestates);
+    void draw(languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes);
 
     Rectangle hitbox_flagDE = {200, 340, 150, 90};
     Rectangle hitbox_flagDE_marked = {190, 330, 170, 110};
@@ -46,10 +47,10 @@ public:
     Texture2D flagDE = LoadTexture("assets/graphics/flag_DE_5.png");
     Texture2D flagENG = LoadTexture("assets/graphics/flag_ENG_2.png");
     Texture2D closeButton = LoadTexture("assets/graphics/button_close.png");
-    Texture2D tastatur = LoadTexture("assets/graphics/tastatur.png");
-    Texture2D controller = LoadTexture("assets/graphics/controller.png");
-    Texture2D soundless = LoadTexture("assets/graphics/soundless.png");
-    Texture2D soundmore = LoadTexture("assets/graphics/soundmore.png");
+    Texture2D tastaturbutton = LoadTexture("assets/graphics/tastatur.png");
+    Texture2D controllerbutton = LoadTexture("assets/graphics/controller.png");
+    Texture2D soundlessbutton = LoadTexture("assets/graphics/soundless.png");
+    Texture2D soundmorebutton = LoadTexture("assets/graphics/soundmore.png");
 
 };
 

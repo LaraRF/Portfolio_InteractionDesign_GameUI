@@ -6,13 +6,13 @@
 #include <iostream>
 #include "raylib.h"
 
-void pausescreen::update(globalstates &globalstates, languagestates &languagestates) {
+void pausescreen::update(globalstates &globalstates, languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes) {
     if(IsKeyPressed(KEY_P)){
         globalstates =gameplayscreen;
     }
 }
 
-void pausescreen::draw(languagestates &languagestates) {
+void pausescreen::draw(languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes) {
     ClearBackground(DARKGRAY);
     DrawRectangleRec(boxforpausebutton, GRAY);
     DrawTexture(pausebutton, 398,398, WHITE);

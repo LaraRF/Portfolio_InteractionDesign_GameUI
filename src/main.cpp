@@ -11,12 +11,14 @@
 #include "gameplay.h"
 #include "pausescreen.h"
 #include "journal.h"
+#include "controlsettings.h"
+#include "soundsettings.h"
 
 int main() {
     // Raylib initialization
     // Project name, screen size, fullscreen mode etc. can be specified in the config.h.in file
     SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
-    InitWindow(Game::ScreenWidth, Game::ScreenHeight, "Soul Steel   ");
+    InitWindow(Game::ScreenWidth, Game::ScreenHeight, "Soul Steel");
     SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
@@ -32,6 +34,10 @@ int main() {
     languagestates language =german;
 
     globalstates state = menu;
+
+    soundstates sound =stumm;
+
+    controlmodes control =tastaturmode;
 
     mainmenu mainmenu;
     optionen optionen;
@@ -58,19 +64,19 @@ int main() {
 
         switch (state) {
             case menu:
-                mainmenu.update(state, language);
+                mainmenu.update(state, language, sound, control);
                 break;
             case hauptoptionen:
-                optionen.update(state, language);
+                optionen.update(state, language, sound,control);
                 break;
             case gameplayscreen:
-                gameplay.update(state, language);
+                gameplay.update(state, language,sound,control);
                 break;
             case pausieren:
-                pausescreen.update(state, language);
+                pausescreen.update(state, language, sound,control);
                 break;
             case hauptjournal:
-                journal.update(state, language);
+                journal.update(state, language, sound,control);
                 break;
             default:
                 break;
@@ -84,19 +90,19 @@ int main() {
             ClearBackground(BLACK);
             switch (state) {
                 case menu:
-                    mainmenu.draw(language);
+                    mainmenu.draw(language,sound,control);
                     break;
                 case hauptoptionen:
-                    optionen.draw(language);
+                    optionen.draw(language,sound,control);
                     break;
                 case gameplayscreen:
-                    gameplay.draw(language);
+                    gameplay.draw(language,sound,control);
                     break;
                 case pausieren:
-                    pausescreen.draw(language);
+                    pausescreen.draw(language,sound,control);
                     break;
                 case hauptjournal:
-                    journal.draw(language);
+                    journal.draw(language,sound,control);
                     break;
                 default:
                     break;

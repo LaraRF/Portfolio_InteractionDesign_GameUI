@@ -7,7 +7,7 @@
 #include "raylib.h"
 #include "languagesettings.h"
 
-void journal::update(globalstates &globalstates, languagestates &languagestates) {
+void journal::update(globalstates &globalstates, languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes) {
     if(IsKeyPressed(KEY_RIGHT)){
         if(cursor == 2){
             cursor = 2; //ends with last box, does not come back on the other side of the screen
@@ -38,7 +38,7 @@ void journal::update(globalstates &globalstates, languagestates &languagestates)
     }
 }
 
-void journal::draw(languagestates &languagestates) {
+void journal::draw(languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes) {
 
     DrawTexture(journalbackground, 5,5,WHITE);
 

@@ -21,6 +21,8 @@ add_executable(${PROJECT_NAME} main.cpp
         languagesettings.h
         journal.cpp
         journal.h
+        controlsettings.h
+        soundsettings.h
 )
 
 # Add config.h.in file

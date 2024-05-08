@@ -7,13 +7,15 @@
 #include "raylib.h"
 #include "globalstates.h"
 #include "languagesettings.h"
+#include "controlsettings.h"
+#include "soundsettings.h"
 #include <iostream>
 
 class pausescreen {
 public:
-    void update(globalstates &globalstates, languagestates &languagestates);
+    void update(globalstates &globalstates, languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes);
 
-    void draw(languagestates &languagestates);
+    void draw(languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes);
 
     Texture2D pausebutton = LoadTexture("assets/graphics/button_pause.png");
     Texture2D title = LoadTexture("assets/graphics/title_3.png");

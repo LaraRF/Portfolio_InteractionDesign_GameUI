@@ -4,7 +4,7 @@
 
 #include "gameplay.h"
 
-void gameplay::update(globalstates &globalstates, languagestates &languagestates) {
+void gameplay::update(globalstates &globalstates, languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes) {
     if(IsKeyPressed(KEY_M)){
         globalstates = menu;
     }
@@ -16,7 +16,7 @@ void gameplay::update(globalstates &globalstates, languagestates &languagestates
     }
 }
 
-void gameplay::draw(languagestates &languagestates) {
+void gameplay::draw(languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes) {
     ClearBackground(GRAY);
 
     switch(languagestates){
