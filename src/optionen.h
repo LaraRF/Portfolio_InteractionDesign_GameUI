@@ -9,10 +9,11 @@
 #include "globalstates.h"
 #include <iostream>
 #include "languagesettings.h"
+#include <vector>
 
 class optionen {
 public:
-    int cursor = 0;
+    int cursor;
 
     void update(globalstates &globalstates, languagestates &languagestates);
 
@@ -34,7 +35,7 @@ public:
     Rectangle hitbox_controller_marked={590,90,170,110};
 
     Rectangle hitbox_soundless ={200, 220,150,90};
-    Rectangle hitbox_soundless_marked ={210, 210,170,110};
+    Rectangle hitbox_soundless_marked ={190, 210,170,110};
 
     Rectangle hitbox_soundmore ={600,220, 150,90};
     Rectangle hitbox_soundmore_marked ={590, 210,170,110};

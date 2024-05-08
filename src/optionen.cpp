@@ -8,87 +8,162 @@
 #include "languagesettings.h"
 
 void optionen::update(globalstates &globalstates, languagestates &languagestates) {
-    if(IsKeyPressed(KEY_RIGHT)){
-        if(cursor == 2){
-            cursor = 2; //ends with last box, does not come back on the other side of the screen
-        }else{
-            cursor++;
-        }
-    }
 
-    if(IsKeyPressed(KEY_LEFT)){
-        if(cursor == 0){
-            cursor = 0; //same here: you can't go more the side if you're already on the last box
-        }else{
-            cursor--;
-        }
-    }
-
-    if(IsKeyPressed(KEY_ENTER)) {
-        switch(cursor){
-            case 0:
-                languagestates = german;
-                break;
-            case 1:
-                languagestates = english;
-                break;
-            case 2:
-                globalstates = menu;
-        }
-    }
-}
-
-void optionen::draw(languagestates &languagestates) {
-
-    switch(cursor){ //shows which box is selected by giving it a white outline
+    switch (cursor) {
         case 0:
-            DrawRectangleRec(hitbox_flagDE_marked, WHITE);
+            if (IsKeyPressed(KEY_RIGHT)) {
+                cursor++;
+            } else if (IsKeyPressed(KEY_DOWN)) {
+                cursor = cursor + 2;
+            }
             break;
         case 1:
-            DrawRectangleRec(hitbox_flagENG_marked, WHITE);
+            if (IsKeyPressed(KEY_LEFT)) {
+                cursor--;
+            } else if (IsKeyPressed(KEY_DOWN)) {
+                cursor = cursor + 2;
+            } else if (IsKeyPressed(KEY_RIGHT)) {
+                cursor = cursor + 5;
+            }
             break;
         case 2:
-            DrawRectangleRec(hitbox_close_marked, WHITE);
+            if (IsKeyPressed(KEY_RIGHT)) {
+                cursor++;
+            } else if (IsKeyPressed(KEY_UP)) {
+                cursor = cursor - 2;
+            } else if (IsKeyPressed(KEY_DOWN)) {
+                cursor = cursor + 2;
+            }
             break;
-        default:
+        case 3:
+            if (IsKeyPressed(KEY_LEFT)) {
+                cursor--;
+            } else if (IsKeyPressed(KEY_UP)) {
+                cursor = cursor - 2;
+            } else if (IsKeyPressed(KEY_DOWN)) {
+                cursor = cursor + 2;
+            } else if (IsKeyPressed(KEY_RIGHT)) {
+                cursor = cursor + 3;
+            }
             break;
+        case 4:
+            if (IsKeyPressed(KEY_RIGHT)) {
+                cursor++;
+            } else if (IsKeyPressed(KEY_UP)) {
+                cursor = cursor - 2;
+            }
+            break;
+        case 5:
+            if (IsKeyPressed(KEY_LEFT)) {
+                cursor--;
+            } else if (IsKeyPressed(KEY_RIGHT)) {
+                cursor++;
+            } else if (IsKeyPressed(KEY_UP)) {
+                cursor = cursor - 2;
+            } else if (IsKeyPressed(KEY_DOWN)) {
+                cursor++;
+            }
+            break;
+        case 6:
+            if (IsKeyPressed(KEY_LEFT)) {
+                cursor--;
+            } else if (IsKeyPressed(KEY_UP)) {
+                cursor--;
+                break;
+                default:
+                    break;
+            }
     }
-
-    DrawRectangleRec(hitbox_flagDE, GRAY);
-    DrawRectangleRec(hitbox_flagENG, GRAY);
-    DrawRectangleRec(hitbox_close, GRAY);
-
-    DrawRectangleRec(hitbox_tastatur, GRAY);
-    DrawRectangleRec(hitbox_controller, GRAY);
-
-    DrawRectangleRec(hitbox_soundless, GRAY);
-    DrawRectangleRec(hitbox_soundmore, GRAY);
-
-    DrawTexture(flagDE, 225,355,WHITE);
-    DrawTexture(flagENG, 625,355,WHITE);
-    DrawTexture(closeButton, 810,450,WHITE);
-    DrawTexture(tastatur, 225,115,WHITE);
-    DrawTexture(controller, 625, 115, WHITE);
-    DrawTexture(soundless, 225, 235, WHITE);
-    DrawTexture(soundmore, 625,235, WHITE);
-
-    switch(languagestates){
-        case german:
-            DrawText("Einstellungen", 320, 23, 50, WHITE);
-            DrawText("Steuerung", 400, 125, 30, WHITE);
-            DrawText("Ton", 400, 235, 30, WHITE);
-            DrawText("Sprache", 400, 365, 30, WHITE);
-            break;
-        case english:
-            DrawText("Settings", 380, 23, 50, WHITE);
-            DrawText("Control", 400, 125, 30, WHITE);
-            DrawText("Sound", 400, 235, 30, WHITE);
-            DrawText("Language", 400, 365, 30, WHITE);
-            break;
-        default:
-            break;
+    if(IsKeyPressed(KEY_ENTER)){
+        switch(cursor){
+            case 0:
+                //control =tastatur
+                break;
+            case 1:
+                //control =controller
+                break;
+            case 2:
+                //sound =less
+                break;
+            case 3:
+                //sound =more
+                break;
+            case 4:
+                languagestates=german;
+                break;
+            case 5:
+                languagestates=english;
+                break;
+            case 6:
+                globalstates=menu;
+                break;
+            default:
+                break;
+        }
     }
-
 }
 
+    void optionen::draw(languagestates &languagestates) {
+
+        switch (cursor) { //shows which box is selected by giving it a white outline
+            case 0:
+                DrawRectangleRec(hitbox_tastatur_marked, WHITE);
+                break;
+            case 1:
+                DrawRectangleRec(hitbox_controller_marked, WHITE);
+                break;
+            case 2:
+                DrawRectangleRec(hitbox_soundless_marked, WHITE);
+                break;
+            case 3:
+                DrawRectangleRec(hitbox_soundmore_marked, WHITE);
+                break;
+            case 4:
+                DrawRectangleRec(hitbox_flagDE_marked, WHITE);
+                break;
+            case 5:
+                DrawRectangleRec(hitbox_flagENG_marked, WHITE);
+                break;
+            case 6:
+                DrawRectangleRec(hitbox_close_marked, WHITE);
+                break;
+            default:
+                break;
+        }
+
+        DrawRectangleRec(hitbox_flagDE, GRAY);
+        DrawRectangleRec(hitbox_flagENG, GRAY);
+        DrawRectangleRec(hitbox_close, GRAY);
+
+        DrawRectangleRec(hitbox_tastatur, GRAY);
+        DrawRectangleRec(hitbox_controller, GRAY);
+
+        DrawRectangleRec(hitbox_soundless, GRAY);
+        DrawRectangleRec(hitbox_soundmore, GRAY);
+
+        DrawTexture(flagDE, 225, 355, WHITE);
+        DrawTexture(flagENG, 625, 355, WHITE);
+        DrawTexture(closeButton, 810, 450, WHITE);
+        DrawTexture(tastatur, 225, 115, WHITE);
+        DrawTexture(controller, 625, 115, WHITE);
+        DrawTexture(soundless, 225, 235, WHITE);
+        DrawTexture(soundmore, 625, 235, WHITE);
+
+        switch (languagestates) {
+            case german:
+                DrawText("Einstellungen", 320, 23, 50, WHITE);
+                DrawText("Steuerung", 400, 125, 30, WHITE);
+                DrawText("Ton", 400, 235, 30, WHITE);
+                DrawText("Sprache", 400, 365, 30, WHITE);
+                break;
+            case english:
+                DrawText("Settings", 380, 23, 50, WHITE);
+                DrawText("Control", 400, 125, 30, WHITE);
+                DrawText("Sound", 400, 235, 30, WHITE);
+                DrawText("Language", 400, 365, 30, WHITE);
+                break;
+            default:
+                break;
+        }
+    }
 
