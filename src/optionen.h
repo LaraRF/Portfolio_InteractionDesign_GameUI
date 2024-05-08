@@ -14,7 +14,7 @@
 
 class optionen {
 public:
-    int cursor;
+    int cursor=0;
 
     void update(globalstates &globalstates, languagestates &languagestates, soundstates &soundstates, controlmodes &controlmodes);
 
