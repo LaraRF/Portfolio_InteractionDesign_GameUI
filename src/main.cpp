@@ -71,6 +71,7 @@ int main() {
                 break;
             case hauptjournal:
                 journal.update(state, language);
+                break;
             default:
                 break;
         }
@@ -93,8 +94,10 @@ int main() {
                     break;
                 case pausieren:
                     pausescreen.draw(language);
+                    break;
                 case hauptjournal:
                     journal.draw(language);
+                    break;
                 default:
                     break;
             }

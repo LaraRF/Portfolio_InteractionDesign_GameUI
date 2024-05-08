@@ -67,7 +67,7 @@ void optionen::draw(languagestates &languagestates) {
             DrawText("Einstellungen", 320, 30, 50, WHITE);
             break;
         case english:
-            DrawText("Settings", 320, 30, 50, WHITE);
+            DrawText("Settings", 380, 30, 50, WHITE);
             break;
         default:
             break;
