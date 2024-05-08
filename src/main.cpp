@@ -16,7 +16,7 @@ int main() {
     // Raylib initialization
     // Project name, screen size, fullscreen mode etc. can be specified in the config.h.in file
     SetConfigFlags(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
-    InitWindow(Game::ScreenWidth, Game::ScreenHeight, Game::PROJECT_NAME);
+    InitWindow(Game::ScreenWidth, Game::ScreenHeight, "Soul Steel   ");
     SetTargetFPS(60);
 
 #ifdef GAME_START_FULLSCREEN
