@@ -58,16 +58,32 @@ void optionen::draw(languagestates &languagestates) {
     DrawRectangleRec(hitbox_flagENG, GRAY);
     DrawRectangleRec(hitbox_close, GRAY);
 
-    DrawTexture(flagDE, 125,365,WHITE);
-    DrawTexture(flagENG, 425,365,WHITE);
-    DrawTexture(closeButton, 745,360,WHITE);
+    DrawRectangleRec(hitbox_tastatur, GRAY);
+    DrawRectangleRec(hitbox_controller, GRAY);
+
+    DrawRectangleRec(hitbox_soundless, GRAY);
+    DrawRectangleRec(hitbox_soundmore, GRAY);
+
+    DrawTexture(flagDE, 225,355,WHITE);
+    DrawTexture(flagENG, 625,355,WHITE);
+    DrawTexture(closeButton, 810,450,WHITE);
+    DrawTexture(tastatur, 225,115,WHITE);
+    DrawTexture(controller, 625, 115, WHITE);
+    DrawTexture(soundless, 225, 235, WHITE);
+    DrawTexture(soundmore, 625,235, WHITE);
 
     switch(languagestates){
         case german:
-            DrawText("Einstellungen", 320, 30, 50, WHITE);
+            DrawText("Einstellungen", 320, 23, 50, WHITE);
+            DrawText("Steuerung", 400, 125, 30, WHITE);
+            DrawText("Ton", 400, 235, 30, WHITE);
+            DrawText("Sprache", 400, 365, 30, WHITE);
             break;
         case english:
-            DrawText("Settings", 380, 30, 50, WHITE);
+            DrawText("Settings", 380, 23, 50, WHITE);
+            DrawText("Control", 400, 125, 30, WHITE);
+            DrawText("Sound", 400, 235, 30, WHITE);
+            DrawText("Language", 400, 365, 30, WHITE);
             break;
         default:
             break;
